@@ -328,6 +328,25 @@
         cursor: pointer;
         font-size: 0.9rem;
       }
+
+      /* 更新公告按钮 */
+      .gengxin {
+        background-color: #28a046;
+        color: #ffffff;
+        width: 100px;
+        height: 40px;
+        display: inline-block;
+        vertical-align: middle;
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        transition-duration: 0.3s;
+        transition-property: transform;
+      }
+      .gengxin:hover {
+        background-color: #485fdf;
+        cursor: pointer;
+        transform: scale(1.1);
+      }
     </style>
   </head>
   <body>
@@ -344,6 +363,15 @@
     </header>
 
     <main class="container">
+      <p>
+        点击查看：<a
+          href="gengxin.html"
+          target="_blank"
+          style="text-decoration: none; color: #ffffff"
+          ><button class="gengxin">更新公告</button></a
+        >
+      </p>
+      <hr />
       <div class="bookshelf-header">
         <h2>热门推荐</h2>
         <div class="book-count">共 <span id="count">12</span> 本书籍</div>
