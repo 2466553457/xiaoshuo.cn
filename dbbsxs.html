@@ -598,11 +598,11 @@
       </footer>
     </div>
 
-    <!-- 音频播放器 -->
-    <audio id="audioPlayer" preload="metadata"></audio>
+    <!-- 音频播放器 新加网页须要修改-->
+    <audio id="audioPlayer_page2" preload="metadata"></audio>
 
     <script>
-      // 音频数据 - 模拟一个长篇小说库
+      // 音频数据
       const audioLibrary = [
         {
           id: 1,
@@ -615,331 +615,423 @@
               id: 1,
               title: "第1章 说，你到底是谁！",
               duration: "09:51",
-              url: "https://music2.xkyfzs.top/1.mp3",
+              url: "https://music2.xkyfzs.top/1.mp3?page=page2&t=" + Date.now(),
             },
             {
               id: 2,
               title: "第2章 老爷子不简单呐",
               duration: "09:37",
-              url: "https://music2.xkyfzs.top/2.mp3",
+              url: "https://music2.xkyfzs.top/2.mp3?page=page2&t=" + Date.now(),
             },
             {
               id: 3,
               title: "第3章 纸马的说道",
               duration: "08:24",
-              url: "https://music2.xkyfzs.top/3.mp3",
+              url: "https://music2.xkyfzs.top/3.mp3?page=page2&t=" + Date.now(),
             },
             {
               id: 4,
               title: "第4章 丁二愣子",
               duration: "08:02",
-              url: "https://music2.xkyfzs.top/4.mp3",
+              url: "https://music2.xkyfzs.top/4.mp3?page=page2&t=" + Date.now(),
             },
             {
               id: 5,
               title: "第5章 这不是恩将仇报么！",
               duration: "09:09",
-              url: "https://music2.xkyfzs.top/5.mp3",
+              url: "https://music2.xkyfzs.top/5.mp3?page=page2&t=" + Date.now(),
             },
             {
               id: 6,
               title: "第6章 看上你了",
               duration: "08:17",
-              url: "https://music2.xkyfzs.top/6.mp3",
+              url: "https://music2.xkyfzs.top/6.mp3?page=page2&t=" + Date.now(),
             },
             {
               id: 7,
               title: "第7章 诈尸",
               duration: "08:08",
-              url: "https://music2.xkyfzs.top/7.mp3",
+              url: "https://music2.xkyfzs.top/7.mp3?page=page2&t=" + Date.now(),
             },
             {
               id: 8,
               title: "第8章 这老头真难杀啊",
               duration: "08:53",
-              url: "https://music2.xkyfzs.top/8.mp3",
+              url: "https://music2.xkyfzs.top/8.mp3?page=page2&t=" + Date.now(),
             },
             {
               id: 9,
               title: "第9章 磕头啊！",
               duration: "08:21",
-              url: "https://music2.xkyfzs.top/9.mp3",
+              url: "https://music2.xkyfzs.top/9.mp3?page=page2&t=" + Date.now(),
             },
             {
               id: 10,
               title: "第10章 咋说咋有理",
               duration: "09:11",
-              url: "https://music2.xkyfzs.top/1-50/10.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/10.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 11,
               title: "第11章 送盘缠",
               duration: "08:41",
-              url: "https://music2.xkyfzs.top/1-50/11.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/11.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 12,
               title: "第12章 晓晓，你渴了？",
               duration: "08:16",
-              url: "https://music2.xkyfzs.top/1-50/12.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/12.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 13,
               title: "第13章 起灵！",
               duration: "09:08",
-              url: "https://music2.xkyfzs.top/1-50/13.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/13.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 14,
               title: "第14章 不打算回家了是不？",
               duration: "08:46",
-              url: "https://music2.xkyfzs.top/1-50/14.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/14.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 15,
               title: "第15章 出息了",
               duration: "08:36",
-              url: "https://music2.xkyfzs.top/1-50/15.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/15.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 16,
               title: "第16章 缝尸1",
               duration: "07:31",
-              url: "https://music2.xkyfzs.top/1-50/16.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/16.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 17,
               title: "第17章 一沓子大团结",
               duration: "08:04",
-              url: "https://music2.xkyfzs.top/1-50/17.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/17.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 18,
               title: "第18章 缝尸2",
               duration: "08:45",
-              url: "https://music2.xkyfzs.top/1-50/18.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/18.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 19,
               title: "第19章 嘴真碎",
               duration: "08:49",
-              url: "https://music2.xkyfzs.top/1-50/19.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/19.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 20,
               title: "第20章 孝子王大炮",
               duration: "07:56",
-              url: "https://music2.xkyfzs.top/1-50/20.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/20.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 21,
               title: "第21章 死穴",
               duration: "08:41",
-              url: "https://music2.xkyfzs.top/1-50/21.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/21.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 22,
               title: "第22章 这兄弟我认了",
               duration: "07:56",
-              url: "https://music2.xkyfzs.top/1-50/22.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/22.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 23,
               title: "第23章 脑子里都想的啥？",
               duration: "08:32",
-              url: "https://music2.xkyfzs.top/1-50/23.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/23.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 24,
               title: "24章 髌骨",
               duration: "08:42",
-              url: "https://music2.xkyfzs.top/1-50/24.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/24.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 25,
               title: "第25章 我吃不消啊",
               duration: "08:32",
-              url: "https://music2.xkyfzs.top/1-50/25.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/25.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 26,
               title: "第26章 入土为安",
               duration: "09:20",
-              url: "https://music2.xkyfzs.top/1-50/26.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/26.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 27,
               title: "第27章 真喝高了？",
               duration: "09:57",
-              url: "https://music2.xkyfzs.top/1-50/27.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/27.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 28,
               title: "第28章 你快说啊",
               duration: "08:22",
-              url: "https://music2.xkyfzs.top/1-50/28.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/28.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 29,
               title: "第29章 原来是这样",
               duration: "08:42",
-              url: "https://music2.xkyfzs.top/1-50/29.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/29.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 30,
               title: "第30章 原来是故人",
               duration: "08:17",
-              url: "https://music2.xkyfzs.top/1-50/30.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/30.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 31,
               title: "第31章 豆脉",
               duration: "08:00",
-              url: "https://music2.xkyfzs.top/1-50/31.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/31.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 32,
               title: "第32章 指明路",
               duration: "08:02",
-              url: "https://music2.xkyfzs.top/1-50/32.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/32.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 33,
               title: "第33章 她说",
               duration: "08:23",
-              url: "https://music2.xkyfzs.top/1-50/33.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/33.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 34,
               title: "第34章 不对啊",
               duration: "07:44",
-              url: "https://music2.xkyfzs.top/1-50/34.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/34.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 35,
               title: "第35章 假孝顺",
               duration: "08:12",
-              url: "https://music2.xkyfzs.top/1-50/35.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/35.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 36,
               title: "第36章 到底咋死的？",
               duration: "08:23",
-              url: "https://music2.xkyfzs.top/1-50/36.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/36.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 37,
               title: "第37章 青梅",
               duration: "07:55",
-              url: "https://music2.xkyfzs.top/1-50/37.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/37.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 38,
               title: "第38章 传武哥，疼死了",
               duration: "07:43",
-              url: "https://music2.xkyfzs.top/1-50/38.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/38.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 39,
               title: "第39章 是我干的",
               duration: "07:18",
-              url: "https://music2.xkyfzs.top/1-50/39.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/39.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 40,
               title: "第40章 案中案",
               duration: "07:37",
-              url: "https://music2.xkyfzs.top/1-50/40.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/40.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 41,
               title: "第41章 还是不对",
               duration: "08:07",
-              url: "https://music2.xkyfzs.top/1-50/41.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/41.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 42,
               title: "第42章 那就等你考上大学的",
               duration: "08:02",
-              url: "https://music2.xkyfzs.top/1-50/42.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/42.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 43,
               title: "第43章 到底谁是猎物",
               duration: "08:21",
-              url: "https://music2.xkyfzs.top/1-50/43.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/43.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 44,
               title: "第44章 因果，报应",
               duration: "07:58",
-              url: "https://music2.xkyfzs.top/1-50/44.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/44.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 45,
               title: "第45章 翻个面，趴好了",
               duration: "07:52",
-              url: "https://music2.xkyfzs.top/1-50/45.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/45.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 46,
               title: "第46章 盖房子",
               duration: "07:57",
-              url: "https://music2.xkyfzs.top/1-50/46.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/46.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 47,
               title: "第47章 黄皮子迷了",
               duration: "08:16",
-              url: "https://music2.xkyfzs.top/1-50/47.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/47.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 48,
               title: "第48章 大鞋底子一顿呼",
               duration: "08:43",
-              url: "https://music2.xkyfzs.top/1-50/48.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/48.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 49,
               title: "第49章 缺德玩意儿",
               duration: "08:30",
-              url: "https://music2.xkyfzs.top/1-50/49.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/49.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 50,
               title: "第50章 义仁饮酒醉",
               duration: "08:15",
-              url: "https://music2.xkyfzs.top/1-50/50.mp3",
+              url:
+                "https://music2.xkyfzs.top/1-50/50.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 51,
               title: "第51章 真畜生啊",
               duration: "08:08",
-              url: "https://music2.xkyfzs.top/51-100/51.mp3",
+              url:
+                "https://music2.xkyfzs.top/51-100/51.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 52,
               title: "第52章 你想我不？",
               duration: "07:38",
-              url: "https://music2.xkyfzs.top/51-100/52.mp3",
+              url:
+                "https://music2.xkyfzs.top/51-100/52.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 53,
               title: "第53章 风太大了，腰闪了",
               duration: "08:03",
-              url: "https://music2.xkyfzs.top/51-100/53.mp3",
+              url:
+                "https://music2.xkyfzs.top/51-100/53.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 54,
               title: "第54章 命！",
               duration: "08:11",
-              url: "https://music2.xkyfzs.top/51-100/54.mp3",
+              url:
+                "https://music2.xkyfzs.top/51-100/54.mp3?page=page2&t=" +
+                Date.now(),
             },
             {
               id: 55,
               title: "第55章 因果",
               duration: "08:26",
-              url: "https://music2.xkyfzs.top/51-100/55.mp3",
+              url:
+                "https://music2.xkyfzs.top/51-100/55.mp3?page=page2&t=" +
+                Date.now(),
             },
           ],
         },
@@ -974,7 +1066,8 @@
       }
 
       // DOM元素
-      const audioPlayer = document.getElementById("audioPlayer");
+      const PAGE_ID = "novel_page_2";
+      const audioPlayer = document.getElementById("audioPlayer_page2");
       const bookList = document.getElementById("bookList");
       const bookCover = document.getElementById("bookCover");
       const currentBookTitle = document.getElementById("currentBookTitle");
@@ -1003,15 +1096,21 @@
       let currentChapterIndex = 0;
       let isPlaying = false;
       let playbackHistory =
-        JSON.parse(localStorage.getItem("playbackHistory")) || {};
+        JSON.parse(localStorage.getItem("playbackHistory_" + PAGE_ID)) || {};
       let currentChapterPage = 0; // 当前章节页码
       const CHAPTERS_PER_PAGE = 50; // 每页显示的章节数
 
       // 初始化
       function init() {
+        // 先停止并重置音频播放器
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+        audioPlayer.src = "";
+        // 然后再执行其他初始化
         renderBookList();
         loadLastPlayback();
         setupEventListeners();
+        console.log("页面初始化完成，页面ID:", PAGE_ID);
       }
 
       // 渲染书籍列表
@@ -1398,6 +1497,15 @@
 
         // 更新UI
         currentChapterTitle.textContent = chapter.title;
+        const uniqueUrl =
+          chapter.url +
+          (chapter.url.includes("?") ? "&" : "?") +
+          "unique=" +
+          Date.now() +
+          "&page=" +
+          PAGE_ID;
+
+        audioPlayer.src = uniqueUrl;
 
         // 设置音频源
         audioPlayer.src = chapter.url;
@@ -1574,7 +1682,7 @@
         playbackHistory[bookId].lastTime = time;
 
         localStorage.setItem(
-          "playbackHistory",
+          "playbackHistory_" + PAGE_ID,
           JSON.stringify(playbackHistory)
         );
       }
@@ -1592,7 +1700,7 @@
         if (!playbackHistory[bookId].playedChapters.includes(chapterId)) {
           playbackHistory[bookId].playedChapters.push(chapterId);
           localStorage.setItem(
-            "playbackHistory",
+            "playbackHistory_" + PAGE_ID,
             JSON.stringify(playbackHistory)
           );
         }
@@ -1600,51 +1708,53 @@
 
       // 加载上次播放记录
       function loadLastPlayback() {
-        // 查找最近播放的书籍
-        let lastBookId = null;
-        let lastTime = 0;
+        if (Object.keys(playbackHistory).length > 0) {
+          // 查找最近播放的书籍
+          let lastBookId = null;
+          let lastTime = 0;
 
-        for (const bookId in playbackHistory) {
-          if (playbackHistory[bookId].lastTime > lastTime) {
-            lastTime = playbackHistory[bookId].lastTime;
-            lastBookId = bookId;
+          for (const bookId in playbackHistory) {
+            if (playbackHistory[bookId].lastTime > lastTime) {
+              lastTime = playbackHistory[bookId].lastTime;
+              lastBookId = bookId;
+            }
           }
-        }
 
-        console.log("加载上次播放记录，最近书籍ID:", lastBookId);
+          console.log("加载上次播放记录，最近书籍ID:", lastBookId);
 
-        // 如果有播放记录，显示恢复信息
-        if (lastBookId) {
-          const book = audioLibrary.find((b) => b.id == lastBookId);
-          if (book) {
-            const lastChapterIndex = playbackHistory[lastBookId].lastChapter;
-            if (
-              lastChapterIndex !== undefined &&
-              lastChapterIndex < book.chapters.length
-            ) {
-              const chapter = book.chapters[lastChapterIndex];
+          // 如果有播放记录，显示恢复信息
+          if (lastBookId) {
+            const book = audioLibrary.find((b) => b.id == lastBookId);
+            if (book) {
+              const lastChapterIndex = playbackHistory[lastBookId].lastChapter;
+              if (
+                lastChapterIndex !== undefined &&
+                lastChapterIndex < book.chapters.length
+              ) {
+                const chapter = book.chapters[lastChapterIndex];
 
-              console.log(
-                "显示恢复信息:",
-                chapter.title,
-                playbackHistory[lastBookId].lastTime
-              );
-              lastChapterTitle.textContent = chapter.title;
-              lastTime.textContent = formatTime(
-                playbackHistory[lastBookId].lastTime || 0
-              );
-              resumeInfo.style.display = "block";
+                console.log(
+                  "显示恢复信息:",
+                  chapter.title,
+                  playbackHistory[lastBookId].lastTime
+                );
+                lastChapterTitle.textContent = chapter.title;
+                lastTime.textContent = formatTime(
+                  playbackHistory[lastBookId].lastTime || 0
+                );
+                resumeInfo.style.display = "block";
+              } else {
+                console.warn("章节索引无效:", lastChapterIndex);
+                resumeInfo.style.display = "none";
+              }
             } else {
-              console.warn("章节索引无效:", lastChapterIndex);
+              console.warn("未找到书籍:", lastBookId);
               resumeInfo.style.display = "none";
             }
           } else {
-            console.warn("未找到书籍:", lastBookId);
+            console.log("没有播放记录");
             resumeInfo.style.display = "none";
           }
-        } else {
-          console.log("没有播放记录");
-          resumeInfo.style.display = "none";
         }
       }
 
