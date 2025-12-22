@@ -183,6 +183,16 @@
         color: #6d214f;
       }
 
+      .category-kongbu {
+        background-color: #000000;
+        color: #ffffff;
+      }
+
+      .category-lingyi {
+        background-color: #b8d82a;
+        color: #21686d;
+      }
+
       .category-history {
         background-color: #55efc4;
         color: #006266;
@@ -389,10 +399,12 @@
       <div class="filters">
         <button class="filter-btn active" data-filter="all">全部</button>
         <button class="filter-btn" data-filter="fantasy">玄幻</button>
+        <button class="filter-btn" data-filter="kongbu">恐怖</button>
         <button class="filter-btn" data-filter="romance">言情</button>
         <button class="filter-btn" data-filter="mystery">悬疑</button>
-        <button class="filter-btn" data-filter="sci-fi">科幻</button>
+        <button class="filter-btn" data-filter="sci-fi">都市</button>
         <button class="filter-btn" data-filter="gaoxiao">搞笑</button>
+        <button class="filter-btn" data-filter="lingyi">灵异</button>
         <button class="filter-btn" data-filter="action">武侠</button>
         <button class="filter-btn" data-filter="history">历史</button>
       </div>
@@ -418,7 +430,7 @@
           id: 1,
           title: "东北90年代白事先生",
           author: "滨城老三",
-          categories: ["mystery", "romance"],
+          categories: ["mystery", "gaoxiao", "kongbu", "lingyi"],
           cover: "imgs/db90ndbsxs.jpg",
           isNew: true,
           url: "dbbsxs.html",
@@ -427,7 +439,7 @@
           id: 2,
           title: "都是地府惹的祸",
           author: "吴半仙",
-          categories: ["mystery", "fantasy"],
+          categories: ["sci-fi", "lingyi", "mystery", "gaoxiao"],
           cover: "imgs/difurehuo.jpg",
           isNew: false,
           url: "dsdfrdh.html",
@@ -436,7 +448,7 @@
           id: 3,
           title: "东北出马笔记",
           author: "吴半仙",
-          categories: ["mystery", "fantasy"],
+          categories: ["mystery", "gaoxiao", "kongbu", "lingyi"],
           cover: "imgs/dbcmbj.jpg",
           isNew: false,
           url: "dbcmbj.html",
@@ -445,7 +457,7 @@
           id: 4,
           title: "东北灵异档案",
           author: "爱会永恒",
-          categories: ["mystery", "sci-fi", "romance"],
+          categories: ["mystery", "sci-fi", "lingyi", "kongbu"],
           cover: "imgs/dblyda.jpg",
           isNew: false,
           url: "dblyda.html",
@@ -454,7 +466,7 @@
           id: 5,
           title: "借命",
           author: "桃花十里",
-          categories: ["fantasy", "mystery", "romance"],
+          categories: ["mystery", "lingyi", "kongbu", "romance"],
           cover: "imgs/jm.jpg",
           isNew: false,
           url: "jm.html",
@@ -463,7 +475,7 @@
           id: 6,
           title: "代理阎王",
           author: "一柱老孤烟",
-          categories: ["sci-fi", "fantasy", "gaoxiao"],
+          categories: ["sci-fi", "fantasy", "gaoxiao", "lingyi"],
           cover: "imgs/dlyw.jpg",
           isNew: false,
           url: "dlyw.html",
@@ -472,20 +484,31 @@
           id: 7,
           title: "极度尸寒",
           author: "全雨",
-          categories: ["mystery", "romance", "sci-fi"],
+          categories: ["mystery", "kongbu", "lingyi", "sci-fi"],
           cover: "imgs/jdsh.jpg",
           isNew: false,
           url: "jdsh.html",
+        },
+        {
+          id: 8,
+          title: "乡村怪谈",
+          author: "亦假亦真",
+          categories: ["mystery", "kongbu", "lingyi", "gaoxiao"],
+          cover: "imgs/xcgt123.jpg",
+          isNew: false,
+          url: "xcgt.html",
         },
       ];
 
       // 分类映射
       const categoryMap = {
         fantasy: "玄幻",
+        kongbu: "恐怖",
         romance: "言情",
         mystery: "悬疑",
-        "sci-fi": "科幻",
+        "sci-fi": "都市",
         gaoxiao: "搞笑",
+        lingyi: "灵异",
         action: "武侠",
         history: "历史",
       };
