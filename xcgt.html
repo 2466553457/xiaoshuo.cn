@@ -599,10 +599,10 @@
     </div>
 
     <!-- 音频播放器 -->
-    <audio id="audioPlayer" preload="metadata"></audio>
+    <audio id="audioPlayer_page1" preload="metadata"></audio>
 
     <script>
-      // 音频数据 - 模拟一个长篇小说库
+      // 音频数据
       const audioLibrary = [
         {
           id: 1,
@@ -615,13 +615,13 @@
               id: 1,
               title: "第1章 童年往事",
               duration: "15:50",
-              url: "https://xxcgt1.xkyfzs.top/1.mp3",
+              url: "https://xxcgt1.xkyfzs.top/1.mp3" + Date.now(),
             },
             {
               id: 2,
               title: "第2章 活见鬼",
               duration: "13:58",
-              url: "https://xxcgt1.xkyfzs.top/1-50/2.mp3",
+              url: "https://xxcgt1.xkyfzs.top/1-50/2.mp3" + Date.now(),
             },
             // {
             //   id: 3,
@@ -698,7 +698,8 @@
       }
 
       // DOM元素
-      const audioPlayer = document.getElementById("audioPlayer");
+      const PAGE_ID = "novel_page_1";
+      const audioPlayer = document.getElementById("audioPlayer_page1");
       const bookList = document.getElementById("bookList");
       const bookCover = document.getElementById("bookCover");
       const currentBookTitle = document.getElementById("currentBookTitle");
@@ -727,15 +728,21 @@
       let currentChapterIndex = 0;
       let isPlaying = false;
       let playbackHistory =
-        JSON.parse(localStorage.getItem("playbackHistory")) || {};
+        // JSON.parse(localStorage.getItem("playbackHistory")) || {}; 修改前
+        JSON.parse(localStorage.getItem("playbackHistory_" + PAGE_ID)) || {};
       let currentChapterPage = 0; // 当前章节页码
       const CHAPTERS_PER_PAGE = 50; // 每页显示的章节数
 
       // 初始化
       function init() {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+        audioPlayer.src = "";
         renderBookList();
         loadLastPlayback();
         setupEventListeners();
+
+        console.log("页面初始化完成，页面ID:", PAGE_ID);
       }
 
       // 渲染书籍列表
@@ -1123,6 +1130,16 @@
         // 更新UI
         currentChapterTitle.textContent = chapter.title;
 
+        const uniqueUrl =
+          chapter.url +
+          (chapter.url.includes("?") ? "&" : "?") +
+          "unique=" +
+          Date.now() +
+          "&page=" +
+          PAGE_ID;
+
+        audioPlayer.src = uniqueUrl;
+
         // 设置音频源
         audioPlayer.src = chapter.url;
 
@@ -1298,7 +1315,8 @@
         playbackHistory[bookId].lastTime = time;
 
         localStorage.setItem(
-          "playbackHistory",
+          // "playbackHistory",修改前
+          "playbackHistory_" + PAGE_ID,
           JSON.stringify(playbackHistory)
         );
       }
@@ -1316,7 +1334,8 @@
         if (!playbackHistory[bookId].playedChapters.includes(chapterId)) {
           playbackHistory[bookId].playedChapters.push(chapterId);
           localStorage.setItem(
-            "playbackHistory",
+            // "playbackHistory",修改前
+            "playbackHistory_" + PAGE_ID,
             JSON.stringify(playbackHistory)
           );
         }
@@ -1324,51 +1343,54 @@
 
       // 加载上次播放记录
       function loadLastPlayback() {
-        // 查找最近播放的书籍
-        let lastBookId = null;
-        let lastTime = 0;
+        // 直接使用当前页面的播放记录
+        if (Object.keys(playbackHistory).length > 0) {
+          // 查找最近播放的书籍
+          let lastBookId = null;
+          let lastTime = 0;
 
-        for (const bookId in playbackHistory) {
-          if (playbackHistory[bookId].lastTime > lastTime) {
-            lastTime = playbackHistory[bookId].lastTime;
-            lastBookId = bookId;
+          for (const bookId in playbackHistory) {
+            if (playbackHistory[bookId].lastTime > lastTime) {
+              lastTime = playbackHistory[bookId].lastTime;
+              lastBookId = bookId;
+            }
           }
-        }
 
-        console.log("加载上次播放记录，最近书籍ID:", lastBookId);
+          console.log("加载上次播放记录，最近书籍ID:", lastBookId);
 
-        // 如果有播放记录，显示恢复信息
-        if (lastBookId) {
-          const book = audioLibrary.find((b) => b.id == lastBookId);
-          if (book) {
-            const lastChapterIndex = playbackHistory[lastBookId].lastChapter;
-            if (
-              lastChapterIndex !== undefined &&
-              lastChapterIndex < book.chapters.length
-            ) {
-              const chapter = book.chapters[lastChapterIndex];
+          // 如果有播放记录，显示恢复信息
+          if (lastBookId) {
+            const book = audioLibrary.find((b) => b.id == lastBookId);
+            if (book) {
+              const lastChapterIndex = playbackHistory[lastBookId].lastChapter;
+              if (
+                lastChapterIndex !== undefined &&
+                lastChapterIndex < book.chapters.length
+              ) {
+                const chapter = book.chapters[lastChapterIndex];
 
-              console.log(
-                "显示恢复信息:",
-                chapter.title,
-                playbackHistory[lastBookId].lastTime
-              );
-              lastChapterTitle.textContent = chapter.title;
-              lastTime.textContent = formatTime(
-                playbackHistory[lastBookId].lastTime || 0
-              );
-              resumeInfo.style.display = "block";
+                console.log(
+                  "显示恢复信息:",
+                  chapter.title,
+                  playbackHistory[lastBookId].lastTime
+                );
+                lastChapterTitle.textContent = chapter.title;
+                lastTime.textContent = formatTime(
+                  playbackHistory[lastBookId].lastTime || 0
+                );
+                resumeInfo.style.display = "block";
+              } else {
+                console.warn("章节索引无效:", lastChapterIndex);
+                resumeInfo.style.display = "none";
+              }
             } else {
-              console.warn("章节索引无效:", lastChapterIndex);
+              console.warn("未找到书籍:", lastBookId);
               resumeInfo.style.display = "none";
             }
           } else {
-            console.warn("未找到书籍:", lastBookId);
+            console.log("没有播放记录");
             resumeInfo.style.display = "none";
           }
-        } else {
-          console.log("没有播放记录");
-          resumeInfo.style.display = "none";
         }
       }
 
