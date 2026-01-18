@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
@@ -525,6 +525,15 @@
           isNew: false,
           url: "mdbygzgysj.html",
         },
+        {
+          id: 11,
+          title: "东北农村诡异故事",
+          author: "凝波",
+          categories: ["mystery", "kongbu", "lingyi"],
+          cover: "imgs/dbncgygs.jpg",
+          isNew: false,
+          url: "dbncgygs.html",
+        },
       ];
 
       // 分类映射
@@ -627,7 +636,7 @@
           // 筛选书籍：至少包含一个当前选中的分类
           const filteredBooks = books.filter((book) => {
             return book.categories.some((category) =>
-              activeFilters.has(category)
+              activeFilters.has(category),
             );
           });
 
@@ -670,8 +679,8 @@
                                 : ""
                             }
                             <img src="${book.cover}" alt="${
-              book.title
-            }" class="book-cover">
+                              book.title
+                            }" class="book-cover">
                             <div class="book-info">
                                 <h3 class="book-title">${book.title}</h3>
                                 <p class="book-author">${book.author}</p>
@@ -763,7 +772,7 @@
 
         // 显示初始化完成消息
         console.log(
-          "多标签小说书架已加载完成！每本书籍可拥有多个分类标签，支持多选筛选。"
+          "多标签小说书架已加载完成！每本书籍可拥有多个分类标签，支持多选筛选。",
         );
       });
     </script>
