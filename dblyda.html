@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
@@ -1138,7 +1138,7 @@
       const bookCover = document.getElementById("bookCover");
       const currentBookTitle = document.getElementById("currentBookTitle");
       const currentChapterTitle = document.getElementById(
-        "currentChapterTitle"
+        "currentChapterTitle",
       );
       const playPauseBtn = document.getElementById("playPauseBtn");
       const playIcon = document.getElementById("playIcon");
@@ -1208,7 +1208,7 @@
             <div class="book-meta">
                 <span>共 ${book.chapters.length} 章</span>
                 <span>约 ${Math.round(
-                  (book.chapters.length * 15) / 60
+                  (book.chapters.length * 15) / 60,
                 )} 小时</span>
             </div>
             <div class="chapter-list-container" id="chapters-${
@@ -1239,7 +1239,7 @@
             ) {
               // 切换章节列表显示
               const chapterContainer = document.getElementById(
-                `chapters-${book.id}`
+                `chapters-${book.id}`,
               );
               const isVisible = chapterContainer.style.display === "block";
 
@@ -1286,7 +1286,7 @@
       // 渲染章节分页按钮
       function renderChapterPagination(book) {
         const paginationContainer = document.getElementById(
-          `pagination-${book.id}`
+          `pagination-${book.id}`,
         );
         const totalChapters = book.chapters.length;
         const totalPages = Math.ceil(totalChapters / CHAPTERS_PER_PAGE);
@@ -1298,7 +1298,7 @@
           const startChapter = i * CHAPTERS_PER_PAGE + 1;
           const endChapter = Math.min(
             (i + 1) * CHAPTERS_PER_PAGE,
-            totalChapters
+            totalChapters,
           );
 
           const pageBtn = document.createElement("button");
@@ -1348,7 +1348,7 @@
           nextPageBtn.addEventListener("click", (e) => {
             e.stopPropagation();
             const totalPages = Math.ceil(
-              book.chapters.length / CHAPTERS_PER_PAGE
+              book.chapters.length / CHAPTERS_PER_PAGE,
             );
             if (currentChapterPage < totalPages - 1) {
               currentChapterPage++;
@@ -1359,7 +1359,7 @@
 
           paginationContainer.insertBefore(
             prevPageBtn,
-            paginationContainer.firstChild
+            paginationContainer.firstChild,
           );
           paginationContainer.appendChild(nextPageBtn);
         }
@@ -1368,7 +1368,7 @@
       // 更新分页按钮活动状态
       function updatePaginationButtons(book, activePage) {
         const pageBtns = document.querySelectorAll(
-          `#pagination-${book.id} .page-btn`
+          `#pagination-${book.id} .page-btn`,
         );
         pageBtns.forEach((btn, index) => {
           // 跳过上一页/下一页按钮
@@ -1386,12 +1386,12 @@
       // 渲染章节列表
       function renderChapterList(book, page) {
         const chapterListContainer = document.getElementById(
-          `chapter-list-${book.id}`
+          `chapter-list-${book.id}`,
         );
         const startIndex = page * CHAPTERS_PER_PAGE;
         const endIndex = Math.min(
           startIndex + CHAPTERS_PER_PAGE,
-          book.chapters.length
+          book.chapters.length,
         );
 
         chapterListContainer.innerHTML = "";
@@ -1445,10 +1445,10 @@
       // 搜索章节
       function searchChapters(book, searchTerm) {
         const chapterListContainer = document.getElementById(
-          `chapter-list-${book.id}`
+          `chapter-list-${book.id}`,
         );
         const paginationContainer = document.getElementById(
-          `pagination-${book.id}`
+          `pagination-${book.id}`,
         );
 
         // 隐藏分页按钮
@@ -1459,7 +1459,7 @@
 
         // 过滤章节
         const filteredChapters = book.chapters.filter((chapter) =>
-          chapter.title.toLowerCase().includes(searchTerm.toLowerCase())
+          chapter.title.toLowerCase().includes(searchTerm.toLowerCase()),
         );
 
         if (filteredChapters.length === 0) {
@@ -1470,7 +1470,7 @@
         // 显示搜索结果
         filteredChapters.forEach((chapter, index) => {
           const originalIndex = book.chapters.findIndex(
-            (c) => c.id === chapter.id
+            (c) => c.id === chapter.id,
           );
           const isPlayed =
             playbackHistory[book.id] &&
@@ -1545,7 +1545,7 @@
 
             // 计算并跳转到包含该章节的页码
             currentChapterPage = Math.floor(
-              lastChapterIndex / CHAPTERS_PER_PAGE
+              lastChapterIndex / CHAPTERS_PER_PAGE,
             );
           } else {
             resumeInfo.style.display = "none";
@@ -1592,7 +1592,7 @@
               updateProgressBar();
             }
           },
-          { once: true }
+          { once: true },
         );
 
         // 标记章节为已播放
@@ -1603,7 +1603,7 @@
 
         // 如果章节列表已显示，更新活动状态
         const chapterListContainer = document.getElementById(
-          `chapters-${book.id}`
+          `chapters-${book.id}`,
         );
         if (chapterListContainer.style.display === "block") {
           renderChapterPagination(book);
@@ -1707,7 +1707,7 @@
           savePlaybackProgress(
             currentBook.id,
             currentChapterIndex,
-            audioPlayer.currentTime
+            audioPlayer.currentTime,
           );
         }
       }
@@ -1749,7 +1749,7 @@
 
         localStorage.setItem(
           "playbackHistory_" + PAGE_ID,
-          JSON.stringify(playbackHistory)
+          JSON.stringify(playbackHistory),
         );
       }
 
@@ -1767,7 +1767,7 @@
           playbackHistory[bookId].playedChapters.push(chapterId);
           localStorage.setItem(
             "playbackHistory_" + PAGE_ID,
-            JSON.stringify(playbackHistory)
+            JSON.stringify(playbackHistory),
           );
         }
       }
@@ -1802,11 +1802,11 @@
                 console.log(
                   "显示恢复信息:",
                   chapter.title,
-                  playbackHistory[lastBookId].lastTime
+                  playbackHistory[lastBookId].lastTime,
                 );
                 lastChapterTitle.textContent = chapter.title;
                 lastTime.textContent = formatTime(
-                  playbackHistory[lastBookId].lastTime || 0
+                  playbackHistory[lastBookId].lastTime || 0,
                 );
                 resumeInfo.style.display = "block";
               } else {
@@ -1855,7 +1855,7 @@
               "上次播放章节索引:",
               lastChapterIndex,
               "总章节数:",
-              book.chapters.length
+              book.chapters.length,
             );
 
             if (lastChapterIndex < book.chapters.length) {
@@ -1865,12 +1865,12 @@
 
               // 显示章节列表
               const chapterContainer = document.getElementById(
-                `chapters-${book.id}`
+                `chapters-${book.id}`,
               );
               if (chapterContainer) {
                 chapterContainer.style.display = "block";
                 const bookElement = document.querySelector(
-                  `[data-book-id="${book.id}"]`
+                  `[data-book-id="${book.id}"]`,
                 );
                 if (bookElement) {
                   bookElement.classList.add("active");
@@ -1878,7 +1878,7 @@
 
                 // 计算并跳转到包含该章节的页码
                 currentChapterPage = Math.floor(
-                  lastChapterIndex / CHAPTERS_PER_PAGE
+                  lastChapterIndex / CHAPTERS_PER_PAGE,
                 );
                 console.log("跳转到页码:", currentChapterPage);
 
@@ -1967,8 +1967,8 @@
         });
 
         // 初始化音量
-        audioPlayer.volume = 0.8;
-        volumeLevel.style.width = "80%";
+        audioPlayer.volume = 1.0;
+        volumeLevel.style.width = "100%";
       }
 
       // 页面加载完成后初始化应用
