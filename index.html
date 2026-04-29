@@ -212,6 +212,11 @@
         color: #ffffff;
       }
 
+      .category-xs1 {
+        background-color: #a32487;
+        color: #d6d6d6;
+      }
+
       .new-badge {
         position: absolute;
         top: 15px;
@@ -427,6 +432,7 @@
         <button class="filter-btn" data-filter="history">历史</button>
         <button class="filter-btn" data-filter="zz11">战争</button>
         <button class="filter-btn" data-filter="zy11">战役</button>
+        <button class="filter-btn" data-filter="xs1">相声</button>
       </div>
 
       <div class="books-grid" id="booksGrid">
@@ -450,10 +456,19 @@
       // 模拟书籍数据 - 每本书可以有多个分类
       const books = [
         {
+          id: 19,
+          title: "苗阜王声相声",
+          author: "陕西西安青曲社",
+          categories: ["action", "gaoxiao", "history", "xs1"],
+          cover: "imgs/sxxaqqs1.jpg",
+          isNew: true,
+          url: "sxxaqqs1.html",
+        },
+        {
           id: 18,
           title: "丑娘娘",
           author: "资料查阅",
-          categories: ["fantasy", "gaoxiao", "history", "kongbu"],
+          categories: ["fantasy", "gaoxiao", "history", "xs1"],
           cover: "imgs/cnngdg.jpg",
           isNew: true,
           url: "cnngdg.html",
@@ -627,6 +642,7 @@
         history: "历史",
         zz11: "战争",
         zy11: "战役",
+        xs1: "相声",
       };
 
       // 存储当前选中的筛选条件
