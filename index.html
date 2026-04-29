@@ -383,6 +383,9 @@
         <p class="subtitle">
           探索精彩故事，沉浸阅读世界 | 点击书籍封面开始阅读
         </p>
+        <p style="color: #2c991e">
+          本页面仅供开发者本人使用播放，其他人禁止使用播放，小说来自网络。
+        </p>
       </div>
     </header>
 
@@ -436,7 +439,10 @@
     </main>
 
     <footer class="container">
-      <p>小说书架 &copy; 2025 | 本页面仅供开发者使用，小说来自网络</p>
+      <p>
+        小说书架 &copy; 2025 |
+        本页面仅供开发者本人使用播放，其他人禁止使用播放，小说来自网络。
+      </p>
       <p>点击任意书籍封面将在新窗口打开详情页面</p>
     </footer>
 
@@ -444,12 +450,21 @@
       // 模拟书籍数据 - 每本书可以有多个分类
       const books = [
         {
+          id: 18,
+          title: "丑娘娘",
+          author: "资料查阅",
+          categories: ["fantasy", "gaoxiao", "history", "kongbu"],
+          cover: "imgs/cnngdg.jpg",
+          isNew: true,
+          url: "cnngdg.html",
+        },
+        {
           id: 17,
           title: "世界奥秘",
           author: "资料查阅",
           categories: ["lingyi", "mystery", "sci-fi", "kongbu"],
           cover: "imgs/sjamyxsd.jpg",
-          isNew: true,
+          isNew: false,
           url: "sjam.html",
         },
         {
@@ -458,7 +473,7 @@
           author: "施耐庵",
           categories: ["zy11", "zz11", "mz"],
           cover: "imgs/shzsna.jpg",
-          isNew: true,
+          isNew: false,
           url: "shz.html",
         },
         {
